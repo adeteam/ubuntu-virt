@@ -13,11 +13,11 @@ RUN mkdir -p /opt/vmware
 
 # install vmware workstation
 RUN apt-get install -y qemu-utils open-vm-tools libpcsclite1
-RUN curl xxx --output /tmp/vmware-workstation.bundle
+RUN curl https://www.filehosting.org/file/details/814965/VMware-Player-14.0.0-6661328.x86_64.bundle --output /tmp/vmware-workstation.bundle
 RUN /tmp/vmware-workstation.bundle --eulas-agreed --console --required -p /opt/vmware
 
 # install ovftool
-RUN curl xxx --output /tmpf/vmware-ovftool.bundle
+RUN curl https://www.filehosting.org/file/details/814969/VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle --output /tmpf/vmware-ovftool.bundle
 RUN /tmp/vmware-workstation.bundle --eulas-agreed --console --required -p /opt/vmware
 
 RUN echo "export PATH=\"${PATH}:/opt/vmware/bin\"" >> /etc/bash.bashrc
