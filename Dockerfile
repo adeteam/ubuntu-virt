@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 
 COPY files/* /tmp/
+RUN ls /tmp/*
 
 RUN apt-get update -qq
 RUN apt-get install -y sudo apt-utils apt-transport-https ca-certificates curl software-properties-common
