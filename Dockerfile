@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update -qq
-RUN apt-get install -y apt-utils apt-transport-https ca-certificates curl software-properties-common
+RUN apt-get install -y sudo apt-utils apt-transport-https ca-certificates curl software-properties-common
 RUN apt-get install -y zip unzip
 
 # install packer
