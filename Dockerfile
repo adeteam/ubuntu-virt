@@ -25,6 +25,8 @@ RUN curl --output - https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo
 RUN add-apt-repository 'deb http://packages.cloud.google.com/apt cloud-sdk-xenial main'
 RUN apt-get update -qq && apt-get install -y google-cloud-sdk
 
+# remove unneeded libs
+RUN apt remove -y apt-utils apt-transport-https software-properties-common unzip tar coreutils
 # cleanup temp files
 RUN rm -rf ./*
 # cleanup apt cached files
