@@ -26,8 +26,8 @@ RUN add-apt-repository 'deb http://packages.cloud.google.com/apt cloud-sdk-xenia
 RUN apt-get update -qq && apt-get install -y google-cloud-sdk
 
 # remove unneeded libs
-RUN apt remove -y apt-utils apt-transport-https software-properties-common unzip tar coreutils
-# cleanup temp files
-RUN rm -rf ./*
+RUN apt-get remove -y --allow-remove-essential apt-utils apt-transport-https ca-certificates curl unzip
 # cleanup apt cached files
 RUN apt-get clean autoclean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/
+# cleanup temp files
+RUN rm -rf ./*
