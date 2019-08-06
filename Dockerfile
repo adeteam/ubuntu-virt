@@ -9,7 +9,7 @@ COPY files/* ./
 
 RUN apt-get update -qq
 RUN apt-get install -y sudo apt-utils apt-transport-https ca-certificates curl software-properties-common
-RUN apt-get install -y unzip tar coreutils qemu-utils open-vm-tools libpcsclite1 kmod libxinerama1 libxtst6 libxcursor1 libxi6 libfuse2 net-tools build-essential linux-headers-4.4.0-131-generic linux-image-4.4.0-131-generic
+RUN apt-get install -y git unzip tar coreutils qemu-utils open-vm-tools libpcsclite1 kmod libxinerama1 libxtst6 libxcursor1 libxi6 libfuse2 net-tools build-essential linux-headers-4.4.0-131-generic linux-image-4.4.0-131-generic
 
 # extract the files
 RUN cat ./vmware-workstation.tar.* | tar -xzvf - && chmod a+x ./VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle
@@ -26,7 +26,7 @@ RUN add-apt-repository 'deb http://packages.cloud.google.com/apt cloud-sdk-xenia
 RUN apt-get update -qq && apt-get install -y google-cloud-sdk
 
 # remove unneeded libs
-RUN apt-get remove -y --allow-remove-essential curl unzip
+RUN apt-get remove -y --allow-remove-essential unzip
 # cleanup apt cached files
 RUN apt-get clean autoclean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/
 # cleanup temp files
