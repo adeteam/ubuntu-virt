@@ -1,8 +1,9 @@
 #!/bin/bash
+# install build utils (NOTE: import that this is install during container startup and not during build)
+apt-get install -y linux-headers-$(uname -r) linux-image-$(uname -r)
+
 # configure the vmware modules
 /usr/bin/vmware-modconfig --console --install-all || true
-# change port 443 to something different
-sed -i 's|<httpsPort>443</httpsPort>|<httpsPort>11443</httpsPort>|' /etc/vmware/hostd/proxy.xml
 
 sleep 1
 

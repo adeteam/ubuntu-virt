@@ -9,7 +9,7 @@ COPY files/* ./
 
 RUN apt-get update -qq
 RUN apt-get install -y sudo apt-utils apt-transport-https ca-certificates curl software-properties-common
-RUN apt-get install -y git unzip tar coreutils qemu-utils open-vm-tools libpcsclite1 kmod libxinerama1 libxtst6 libxcursor1 libxi6 libfuse2 net-tools build-essential linux-headers-4.4.0-131-generic linux-image-4.4.0-131-generic
+RUN apt-get install -y git unzip tar coreutils qemu-utils open-vm-tools libpcsclite1 kmod libxinerama1 libxtst6 libxcursor1 libxi6 libfuse2 net-tools build-essential
 
 # extract the files
 RUN cat ./vmware-workstation.tar.* | tar -xzvf - && chmod a+x ./VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle
