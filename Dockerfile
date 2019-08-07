@@ -23,6 +23,7 @@ RUN add-apt-repository 'deb http://packages.cloud.google.com/apt cloud-sdk-xenia
 RUN apt-get update -qq && apt-get install -y google-cloud-sdk
 
 # extract the files
+RUN cat ./vmware-ovftool.tar.* | tar -xzvf - && mv ./VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle /opt/vmware/ && chmod a+x /opt/vmware/VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle
 RUN cat ./vmware-workstation.tar.* | tar -xzvf - && mv ./VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle /opt/vmware/ && chmod a+x /opt/vmware/VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle
 
 # remove unneeded libs
