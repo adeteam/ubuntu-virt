@@ -15,7 +15,7 @@ RUN apt-get install -y git unzip tar coreutils qemu-utils open-vm-tools libpcscl
 RUN cat ./vmware-workstation.tar.* | tar -xzvf - && chmod a+x ./VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle
 
 # install packer
-RUN curl https://releases.hashicorp.com/packer/1.3.4/packer_1.3.4_linux_amd64.zip --output ./packer.zip && unzip ./packer.zip -d /usr/bin/ && chmod a+x /usr/bin/packer
+RUN curl https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_linux_amd64.zip --output ./packer.zip && unzip ./packer.zip -d /usr/bin/ && chmod a+x /usr/bin/packer
 
 # install vmware workstation
 RUN sudo ./VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle --eulas-agreed --console --required
