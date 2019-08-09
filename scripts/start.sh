@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 # start all vmware services
 /etc/init.d/vmware start || true
 
