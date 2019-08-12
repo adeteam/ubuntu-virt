@@ -12,7 +12,11 @@ COPY files/* ./
 # install initial packages
 RUN apt-get update -qq
 RUN apt-get install -y sudo apt-utils apt-transport-https ca-certificates curl software-properties-common
-RUN apt-get install -y git unzip tar coreutils qemu-utils open-vm-tools libpcsclite1 kmod libxinerama1 libxtst6 libxcursor1 libxi6 libfuse2 net-tools build-essential
+RUN apt-get install -y unzip tar coreutils qemu-utils open-vm-tools libpcsclite1 kmod libxinerama1 libxtst6 libxcursor1 libxi6 libfuse2 net-tools build-essential
+
+# install latest git
+RUN add-apt-repository ppa:git-core/ppa
+RUN apt-get update -qq && apt-get install -y git
 
 # install packer
 RUN curl https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_linux_amd64.zip --output ./packer.zip && unzip ./packer.zip -d /usr/bin/ && chmod a+x /usr/bin/packer
