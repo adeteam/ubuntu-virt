@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 # install build utils (NOTE: import that this is install during container startup and not during build)
 apt-get install -y linux-headers-$(uname -r) linux-image-$(uname -r)
 
