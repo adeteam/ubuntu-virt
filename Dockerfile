@@ -19,7 +19,7 @@ RUN add-apt-repository ppa:git-core/ppa
 RUN apt-get update -qq && apt-get install -y git
 
 # install packer
-RUN curl https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_linux_amd64.zip --output ./packer.zip && unzip ./packer.zip -d /usr/bin/ && chmod a+x /usr/bin/packer
+RUN curl https://releases.hashicorp.com/packer/1.7.0/packer_1.7.0_linux_amd64.zip --output ./packer.zip && unzip ./packer.zip -d /usr/bin/ && chmod a+x /usr/bin/packer
 
 # install gcloud tools
 RUN curl --output - https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
